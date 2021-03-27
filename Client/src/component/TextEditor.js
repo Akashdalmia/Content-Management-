@@ -38,33 +38,24 @@ class Components extends Component {
 
   async saaveToDatabase() {
     const { img_url, discription, title } = this.state;
-    var body = {
-      
+    var body = { 
       'title': title,
       'description': discription,
       'image': img_url.replace('=media&token=','secret').replace('images%2F','img'),
     //  'image': img_url
     };
-  
     console.log(body)
-
-
     const response = await fetch('http://localhost:8000/post_data', {
       method: "POST",
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': 'http://localhost:8000'
-
       },
       body:JSON.stringify(body),
   })
-  
   alert('saved')
   console.log(response)
   window.location.reload();
-
-
-
 
 
   // .then(response => {
@@ -81,8 +72,7 @@ class Components extends Component {
 //     method: "POST",
 //     headers: {
 //       'Content-Type': 'application/json',
-//     },
-   
+//     },   
 //     body: JSON.stringify(body),
 // }).then(response => {
 //     return response.json();
@@ -106,12 +96,13 @@ class Components extends Component {
     // await saveToken(prevdata);
     // window.location.reload();
   }
-
   //   componentDidMount(){
   //   alert(JSON.stringify(getToken()))
   // var data = []
   //     saveToken(data)
   //   }
+  
+  
   fileUploadHandler = (files) => {
     console.log(files);
     let bucketName = "images";
@@ -126,6 +117,7 @@ class Components extends Component {
     });
   };
 
+  
   fileShowHandler = (files) => {
     let storageRef = firebase.storage().ref();
     let spaceRef = storageRef.child("images/" + files.name);
@@ -152,8 +144,6 @@ class Components extends Component {
   render() {
     const { editorState } = this.state;
     //console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-
-    //
     return (
       <div className="editor">
         <TextField
