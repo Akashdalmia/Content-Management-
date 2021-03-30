@@ -33,7 +33,7 @@ app.post('/*',usersRoute);
 //app.use('/posts',postsRoute);
 
 const PORT =    process.env.PORT || 8000;
-app.listen(PORT,() => { console.log(`your application is running in $(PORT)`)});
+app.listen(PORT,() => { console.log(`your application is running in ${PORT}`)});
 
 
 
